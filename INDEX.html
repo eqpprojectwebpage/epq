@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawWise - Know Your Rights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1A1A1A);
+            color: #E1BEE7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Video Overlay */
+        #videoOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #videoOverlay video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #skipButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFC107;
+            border: 2px solid #FFC107;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        #skipButton:hover {
+            background: #FFC107;
+            color: black;
+        }
+
+        /* Loading Screen */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Spinner Animation */
+        .spinner {
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid #FFC107;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background: #4A148C;
+            padding: 20px;
+            color: #FFC107;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            background: #6A1B9A;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #E1BEE7;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: #FFC107;
+            color: #000000;
+        }
+
+        /* Main Content */
+        main {
+            padding: 50px;
+        }
+
+        h2 {
+            color: #FF4081;
+            text-transform: uppercase;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8E24AA;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #D81B60;
+        }
+
+        /* Footer */
+        footer {
+            background: #4A148C;
+            text-align: center;
+            padding: 10px;
+            color: #FFC107;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Overlay -->
+    <div id="videoOverlay">
+        <video id="introVideo" autoplay muted>
+            <source src="Black & Orange Simple Welcome To My Channel Youtube Intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="skipButton">Skip</button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        LawWise: Know Your Rights
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rights.html">Know Your Rights</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro">
+            <h2>Welcome to LawWise</h2>
+            <p>Empowering young people aged 16-25 with essential legal knowledge.</p>
+            <a href="rights.html" class="btn">Start Learning</a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 LawWise. All rights reserved.
+    </footer>
+
+    <script>
+        const video = document.getElementById('introVideo');
+        const overlay = document.getElementById('videoOverlay');
+        const skipButton = document.getElementById('skipButton');
+        const loadingScreen = document.getElementById('loadingScreen');
+
+        function showLoadingScreen() {
+            loadingScreen.style.visibility = "visible";
+            loadingScreen.style.opacity = "1";
+
+            setTimeout(() => {
+                loadingScreen.style.opacity = "0";
+                setTimeout(() => {
+                    loadingScreen.style.visibility = "hidden";
+                }, 1000);
+            }, 3000); // Show for 3 seconds
+        }
+
+        video.addEventListener('ended', () => {
+            overlay.style.display = 'none';
+            showLoadingScreen();
+        });
+
+        skipButton.addEventListener('click', () => {
+            video.pause();
+            overlay.style.display = 'none';
+            showLoadingScreen();
+        });
+    </script>
+
+</body>
+</html>
+
+

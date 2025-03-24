@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawWise - Employment Rights</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1A1A1A);
+            color: #E1BEE7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #4A148C;
+            padding: 20px;
+            color: #FFC107;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            background: #6A1B9A;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #E1BEE7;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: #FFC107;
+            color: #000000;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 20px;
+        }
+
+        .rights-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .rights-section h2, .faq h2 {
+            color: #FF4081;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .rights-section h3 {
+            color: #FFC107;
+        }
+
+        .rights-section p {
+            line-height: 1.6;
+        }
+
+        /* Collapsible FAQ Section */
+        .faq {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            color: #E1BEE7;
+        }
+
+        /* Smooth Scroll Effect */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .rights-section, .faq {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        /* Back Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8E24AA;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #D81B60;
+        }
+
+        /* Footer */
+        footer {
+            background: #4A148C;
+            text-align: center;
+            padding: 10px;
+            color: #FFC107;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        LawWise: Know Your Rights
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="rights-section">
+            <h2>Employment Rights: Your Workplace Protections 🔧🌟🎓</h2>
+            <p>Understanding your rights at work ensures fair treatment and protection. Here are key rights you should know:</p>
+
+            <h3>🌐 Minimum Wage Entitlements by Age Group</h3>
+            <p>As of 2025, these are the UK’s legal minimum wage rates:</p>
+            <ul>
+                <li><strong>21 and over:</strong> £11.44 per hour</li>
+                <li><strong>18-20:</strong> £8.60 per hour</li>
+                <li><strong>Under 18:</strong> £6.40 per hour</li>
+                <li><strong>Apprentices:</strong> £6.40 per hour (if under 19 or in first year of apprenticeship)</li>
+            </ul>
+
+            <h3>📖 Maximum Working Hours</h3>
+            <p>Workers cannot be forced to work more than **48 hours per week**, unless they **voluntarily** sign an opt-out agreement.</p>
+
+            <h3>🔒 Anti-Discrimination Protections</h3>
+            <p>UK law protects employees from discrimination based on:</p>
+            <ul>
+                <li>Gender, race, or ethnicity</li>
+                <li>Disability or mental health condition</li>
+                <li>Religion or belief</li>
+                <li>Sexual orientation</li>
+                <li>Age</li>
+                <li>Pregnancy or maternity</li>
+            </ul>
+        </section>
+
+        <section class="faq">
+            <h2>Common Questions 🤔</h2>
+
+            <div class="faq-item">
+                <h3>🕒 Can my employer refuse to pay me for overtime?</h3>
+                <p class="faq-answer">Employers must pay at least minimum wage for all working hours. If you are on a contract with overtime pay, they must honor it.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>🏥 Do I get paid sick leave?</h3>
+                <p class="faq-answer">You may be entitled to **Statutory Sick Pay (SSP)** if you earn over £123 per week and have been off sick for at least 4 consecutive days.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>📅 How much notice must my employer give before terminating me?</h3>
+                <p class="faq-answer">This depends on your contract, but by law, an employer must provide at least 1 week’s notice if you have worked for more than 1 month.</p>
+            </div>
+        </section>
+
+        <a href="index.html" class="btn">⬅ Back to Home</a>
+    </main>
+
+    <footer>
+        &copy; 2025 LawWise. All rights reserved.
+    </footer>
+
+    <script>
+        document.querySelectorAll(".faq-item").forEach(item => {
+            item.addEventListener("click", () => {
+                const answer = item.querySelector(".faq-answer");
+                answer.style.display = (answer.style.display === "block") ? "none" : "block";
+            });
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LawWise - Legal Quiz</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1A1A1A);
+            color: #E1BEE7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #4A148C;
+            padding: 20px;
+            color: #FFC107;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #6A1B9A;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #E1BEE7;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: #FFC107;
+            color: #000000;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #2E1A47;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #8E24AA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .options button:hover {
+            background-color: #D81B60;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #FF4081;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #D81B60;
+        }
+
+        footer {
+            background: #4A148C;
+            text-align: center;
+            padding: 10px;
+            color: #FFC107;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        LawWise: Legal Quiz
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rights.html">Know Your Rights</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="quiz-container">
+        <h2>Test Your Legal Knowledge</h2>
+        <div id="quiz">
+            <p class="question" id="question"></p>
+            <div class="options" id="options"></div>
+        </div>
+        <p class="result" id="result"></p>
+        <button class="btn" onclick="nextQuestion()">Next Question</button>
+    </div>
+
+    <footer>
+        &copy; 2025 LawWise. All rights reserved. <br>
+        <a href="index.html" class="btn">Back to Home</a>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the minimum wage for workers aged 18-20 in the UK (2025)?",
+                options: ["£5.28", "£6.83", "£7.49", "£10.42"],
+                correct: "£7.49"
+            },
+            {
+                question: "How many hours can an employee legally work per week before opting out?",
+                options: ["35", "40", "48", "60"],
+                correct: "48"
+            },
+            {
+                question: "Which UK law protects workers from discrimination?",
+                options: ["Employment Rights Act", "Equality Act 2010", "Health & Safety Act", "Trade Union Act"],
+                correct: "Equality Act 2010"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionEl = document.getElementById("question");
+            const optionsEl = document.getElementById("options");
+            const currentQuestion = quizData[currentQuestionIndex];
+
+            questionEl.textContent = currentQuestion.question;
+            optionsEl.innerHTML = "";
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctAnswer = quizData[currentQuestionIndex].correct;
+            const resultEl = document.getElementById("result");
+
+            if (selectedOption === correctAnswer) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "lightgreen";
+                score++;
+            } else {
+                resultEl.textContent = `❌ Wrong! Correct answer: ${correctAnswer}`;
+                resultEl.style.color = "red";
+            }
+
+            document.querySelectorAll(".options button").forEach(btn => btn.disabled = true);
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            const resultEl = document.getElementById("result");
+
+            if (currentQuestionIndex < quizData.length) {
+                resultEl.textContent = "";
+                loadQuestion();
+            } else {
+                document.getElementById("quiz").innerHTML = `<h2>Your Final Score: ${score} / ${quizData.length}</h2>`;
+            }
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>
